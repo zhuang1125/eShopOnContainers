@@ -5,7 +5,7 @@ EXPOSE 80
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
 RUN pwd
-COPY . .
+COPY ../../../. .
 RUN dotnet restore -nowarn:msb3202,nu1503
 WORKDIR /src/src/Web/WebMVC
 RUN dotnet build --no-restore -c Release -o /app
